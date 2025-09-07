@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why We Built Edventure – Research Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0b0d10; --panel:#1a1f2e; --panel2:#1d242f; --text:#e6e9ef; --muted:#9aa4b2; --accent:#7c5cff; --accent2:#2dd4bf; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);} 
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,13,16,.85);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .wrap{max-width:900px;margin:0 auto;padding:16px 20px}
+    nav{display:flex;align-items:center;justify-content:space-between}
+    .brand a{color:var(--text);text-decoration:none;font-weight:800}
+    .btn{border:0;padding:10px 16px;border-radius:999px;font-weight:600;cursor:pointer}
+    .btn.alt{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0b0d10;box-shadow:var(--shadow)}
+    .btn.ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.15)}
+    main section{padding:40px 20px}
+    .panel{background:rgba(255,255,255,.02);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px}
+    h1{font-size:clamp(28px,5vw,44px);margin:0 0 10px}
+    h2{margin:28px 0 10px}
+    .meta{color:var(--muted);font-size:14px}
+    .muted{color:var(--muted)}
+    .callout{margin-top:16px;padding:14px;border-radius:14px;background:rgba(45,212,191,.08);border:1px solid rgba(45,212,191,.25)}
+    footer{padding:40px 20px;text-align:center;color:var(--muted)}
+    ul.qna{list-style:none;padding:0}
+    ul.qna li{margin-bottom:22px;padding:16px;background:#12151c;border-radius:12px;box-shadow:var(--shadow)}
+    ul.qna strong{display:block;margin-bottom:8px;color:var(--accent2)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <div class="brand"><a href="https://vagisha15.github.io/Edventure.io/">Edventure</a></div>
+        <div class="actions" style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn ghost" href="https://vagisha15.github.io/Edventure.io/#why">← Back</a>
+          <a class="btn alt" href="https://vagisha15.github.io/Edventure.io/#access">Request access</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="wrap">
+        <div class="panel">
+          <h1>Why we built Edventure</h1>
+          <p class="meta">Full research blog — based on faculty survey responses</p>
+
+          <p>We asked higher‑ed instructors detailed questions about their workload, pain points, and expectations from AI. Below are the most telling questions with the responses we got and what they mean for Edventure.</p>
+
+          <h2>Q1. What’s one thing you dislike about your current LMS/platform?</h2>
+          <p class="muted">Responses we got (out of 30+ faculty):</p>
+          <ul class="qna">
+            <li><strong>12 professors</strong> — “Too many clicks to get to information.”</li>
+            <li><strong>8 professors</strong> — “Canvas is not intuitive.”</li>
+            <li><strong>5 professors</strong> — “Blackboard interface feels outdated.”</li>
+            <li><strong>6 professors</strong> — “Assignments need manual adjustments every semester.”</li>
+            <li><strong>7 professors</strong> — “Repetitive navigation across multiple courses.”</li>
+          </ul>
+          <p class="muted"><em>Summary:</em> Faculty consistently cited poor usability and repetitive tasks inside LMS platforms.</p>
+
+          <h2>Q2. What task with your current role as a teacher do you repeatedly wish could be automated?</h2>
+          <p class="muted">Responses we got (out of 30+ faculty):</p>
+          <ul class="qna">
+            <li><strong>15 professors</strong> — “Grading — it consumes the most time.”</li>
+            <li><strong>10 professors</strong> — “Posting and updating course content.”</li>
+            <li><strong>8 professors</strong> — “Responding to the same student questions repeatedly.”</li>
+            <li><strong>6 professors</strong> — “Managing late/absent student workflows.”</li>
+          </ul>
+          <p class="muted"><em>Summary:</em> Automation is most desired in grading, logistics, and repeat communication.</p>
+
+          <h2>Q3. Which AI‑powered features would be most valuable to you?</h2>
+          <p class="muted">Responses we got (out of 30+ faculty):</p>
+          <ul class="qna">
+            <li><strong>18 professors</strong> — AI‑driven grading & feedback</li>
+            <li><strong>14 professors</strong> — Auto‑generated quizzes & assignments</li>
+            <li><strong>10 professors</strong> — 24/7 course FAQ assistant</li>
+            <li><strong>9 professors</strong> — Early‑warning alerts for at‑risk students</li>
+            <li><strong>7 professors</strong> — One‑click LMS coursepage setup</li>
+          </ul>
+          <p class="muted"><em>Summary:</em> Faculty see AI as an assistant for repetitive, structured tasks rather than creative teaching.</p>
+
+          <h2>Q4. Which part of your teaching responsibilities takes the most time each week?</h2>
+          <p class="muted">Responses we got (out of 30+ faculty):</p>
+          <ul class="qna">
+            <li><strong>16 professors</strong> — “Grading exams and assignments.”</li>
+            <li><strong>11 professors</strong> — “Developing lecture materials.”</li>
+            <li><strong>7 professors</strong> — “Managing LMS logistics.”</li>
+            <li><strong>6 professors</strong> — “Providing individualized student feedback.”</li>
+          </ul>
+
+          <h2>Q5. Which responsibilities do you find most repetitive or tedious?</h2>
+          <p class="muted">Responses we got (out of 30+ faculty):</p>
+          <ul class="qna">
+            <li><strong>14 professors</strong> — “Grading the same types of questions.”</li>
+            <li><strong>9 professors</strong> — “Copying course materials across semesters.”</li>
+            <li><strong>8 professors</strong> — “Answering identical student emails.”</li>
+            <li><strong>7 professors</strong> — “Formatting quizzes and exams inside LMS.”</li>
+          </ul>
+
+          <div class="callout">
+            <strong>How this helps Edventure</strong>
+            <p class="muted">These responses reinforced our focus: Edventure automates grading and quiz generation, simplifies course setup, provides a 24/7 FAQ assistant, and streamlines LMS logistics — exactly where faculty lose the most time.</p>
+          </div>
+
+          <div style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn alt" href="https://vagisha15.github.io/Edventure.io/#access">Get early access</a>
+            <a class="btn ghost" href="https://vagisha15.github.io/Edventure.io/#demo">Watch demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap"><small class="muted">© <span id="y"></span> Edventure</small></div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
