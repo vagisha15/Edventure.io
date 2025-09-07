@@ -43,9 +43,9 @@
     #access input,#access select,#access textarea{background:rgba(255,255,255,0.2);color:#0b0d10;border:1px solid rgba(0,0,0,.15);border-radius:10px;padding:10px;width:100%;margin:10px 0 18px}
     /* ✅ Keep checkbox + label side-by-side and close together */
     #access .consent-row{
-      display:inline-flex;        /* shrink to content so it doesn't push label away */
+      display:inline-flex;
       align-items:center;
-      justify-content:flex-start; /* prevent stretching apart */
+      justify-content:flex-start;
       gap:10px;
       margin:16px 0 8px;
     }
@@ -167,31 +167,45 @@
     <div class="wrap"><div class="panel">
       <h2>How to access</h2>
       <p>We are onboarding instructors and departments in small batches. Share a few details, and we will reach out with a link and next steps.</p>
-      <form id="lead-form">
+
+      <!-- ✅ Formspree endpoint -->
+      <form id="lead-form" action="https://formspree.io/f/mzzayrld" method="POST">
+        <input type="hidden" name="_subject" value="Edventure access request" />
         <label for="name">Full name</label>
         <input id="name" name="name" placeholder="Jane Doe" required />
+
         <label for="email">Work email</label>
         <input id="email" name="email" type="email" placeholder="jane@university.edu" required />
+
         <label for="role">Role</label>
         <select id="role" name="role" required>
           <option value="">Select</option><option>Instructor</option><option>Program director</option><option>Department admin</option><option>Teaching assistant</option><option>Other</option>
         </select>
+
         <label for="institution">Institution</label>
         <input id="institution" name="institution" placeholder="Carnegie Mellon University" required />
+
         <label for="lms">Primary LMS</label>
         <select id="lms" name="lms" required>
           <option value="">Select</option><option>Canvas</option><option>Moodle</option><option>Blackboard</option><option>Brightspace</option><option>Schoology</option><option>Other</option>
         </select>
+
         <label for="courses">Courses per term</label>
         <input id="courses" name="courses" type="number" min="0" placeholder="2" />
+
         <label for="notes">Anything else we should know?</label>
         <textarea id="notes" name="notes" placeholder="Share goals, constraints, or timelines"></textarea>
+
         <div class="consent-row">
-          <input type="checkbox" id="consent" required />
+          <input type="checkbox" id="consent" name="consent" required />
           <label for="consent">I agree to be contacted about Edventure.</label>
         </div>
+
         <p class="helper">We respect privacy. We only use your info to contact you about access.</p>
         <div class="cta"><button class="btn alt" type="submit">Request access</button></div>
+
+        <!-- Inline status message -->
+        <div id="form-status" class="helper" style="margin-top:12px;"></div>
       </form>
     </div></div>
   </section>
@@ -212,16 +226,47 @@
       }
     });
   });
-  const recipientEmail='abhardw2@alumni.cmu.edu,vagisha2@alumni.cmu.edu';
-  const form=document.getElementById('lead-form');
-  form.addEventListener('submit',e=>{
-    e.preventDefault();
-    const data=Object.fromEntries(new FormData(form).entries());
-    const subject=encodeURIComponent('Edventure access request');
-    const body=encodeURIComponent(
-      `Name: ${data.name||''}\nEmail: ${data.email||''}\nRole: ${data.role||''}\nInstitution: ${data.institution||''}\nLMS: ${data.lms||''}\nCourses per term: ${data.courses||''}\nNotes: ${data.notes||''}`);
-    window.location.href=`mailto:${recipientEmail}?subject=${subject}&body=${body}`;
-  });
+
+  // 🔁 Formspree submit (no Outlook)
+  const form = document.getElementById('lead-form');
+  const statusEl = document.getElementById('form-status');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Optional: show a soft validation if consent not ticked
+      const consent = document.getElementById('consent');
+      if (consent && !consent.checked) {
+        statusEl.textContent = 'Please tick the consent box to proceed.';
+        statusEl.style.color = '#b91c1c';
+        return;
+      }
+
+      statusEl.textContent = 'Sending...';
+      statusEl.style.color = '#9aa4b2';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+
+        if (res.ok) {
+          form.reset();
+          statusEl.textContent = 'Thanks! We’ll reach out with access details.';
+          statusEl.style.color = '#16a34a';
+        } else {
+          const data = await res.json().catch(() => ({}));
+          statusEl.textContent = (data?.errors?.[0]?.message) || 'Something went wrong. Please try again.';
+          statusEl.style.color = '#b91c1c';
+        }
+      } catch (err) {
+        statusEl.textContent = 'Network error. Please try again.';
+        statusEl.style.color = '#b91c1c';
+      }
+    });
+  }
 </script>
 </body>
 </html>
