@@ -41,7 +41,16 @@
     #access{background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);color:#0b0d10}
     #access h2,#access p,#access label{color:#0b0d10}
     #access input,#access select,#access textarea{background:rgba(255,255,255,0.2);color:#0b0d10;border:1px solid rgba(0,0,0,.15);border-radius:10px;padding:10px;width:100%;margin:10px 0 18px}
-    #access .consent-row{display:flex;align-items:center;gap:10px;margin:16px 0 8px}
+    /* ✅ Keep checkbox + label side-by-side and close together */
+    #access .consent-row{
+      display:inline-flex;        /* shrink to content so it doesn't push label away */
+      align-items:center;
+      justify-content:flex-start; /* prevent stretching apart */
+      gap:10px;
+      margin:16px 0 8px;
+    }
+    #access .consent-row input[type="checkbox"]{width:18px;height:18px;min-width:18px}
+    #access .consent-row label{margin:0}
     #access .btn.alt{background:#0b0d10;color:var(--accent-2)}
     .feature-block{display:grid;grid-template-columns:1fr;gap:40px}
     @media(min-width:768px){.feature-block{grid-template-columns:1fr 1fr}}
@@ -141,7 +150,7 @@
       <h2>See Edventure in Action</h2>
       <div style="display:grid;gap:20px">
         <div>
-          <h3>Experience the Future of Teaching</h3>
+          <h3>Watch how AI builds a coursepage & assignments</h3>
           <iframe class="embed-frame" src="https://www.youtube-nocookie.com/embed/Fqvvvii8sGA?rel=0"
             title="Edventure Demo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
