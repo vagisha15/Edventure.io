@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Edventure | AI-Powered Coursepage Creation & Assignment Management</title>
+  <title>Edventure | AI-Powered Coursepage Creation</title>
   <meta name="description" content="AI-Powered Coursepage Creation & Assignment Management. Transform your teaching with intelligent course generation and secure assessments." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -88,6 +88,7 @@
     #access .consent-row label{ display:inline-block; margin:0; }
 
     footer { padding: 32px 20px 60px; text-align: center; color: var(--muted); background: var(--section1); }
+      .embed-frame{width:100%; aspect-ratio:16/9; border:0; border-radius:12px; box-shadow: var(--shadow);} 
   </style>
 </head>
 <body>
@@ -183,8 +184,16 @@
           <div class="grid" style="grid-template-columns:1fr 1fr; gap: 16px;">
             <div class="card">
               <h3>Interactive Demo</h3>
-              <p class="helper">We will add a video here later.</p>
-              <div style="aspect-ratio:16/9; background:rgba(255,255,255,0.06); border-radius:12px; display:flex; align-items:center; justify-content:center;">Video placeholder</div>
+              <p class="helper">Unlisted YouTube embed for fast, reliable playback.</p>
+              <iframe class="embed-frame"
+                      src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0"
+                      title="Edventure Demo"
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen>
+              </iframe>
+              <!-- Replace VIDEO_ID with your YouTube video ID (the part after v= in the URL). Example: https://youtu.be/abc123 -> VIDEO_ID = abc123 -->
             </div>
             <div class="card">
               <h3>SEB testing environment preview</h3>
