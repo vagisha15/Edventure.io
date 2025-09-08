@@ -41,7 +41,7 @@
     #access{background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);color:#0b0d10}
     #access h2,#access p,#access label{color:#0b0d10}
     #access input,#access select,#access textarea{background:rgba(255,255,255,0.2);color:#0b0d10;border:1px solid rgba(0,0,0,.15);border-radius:10px;padding:10px;width:100%;margin:10px 0 18px}
-    /* ✅ Keep checkbox + label side-by-side and close together */
+    /* consent row */
     #access .consent-row{
       display:inline-flex;
       align-items:center;
@@ -149,15 +149,41 @@
     <div class="wrap"><div class="panel">
       <h2>See Edventure in Action</h2>
       <div style="display:grid;gap:20px">
+        <!-- Left: YouTube demo -->
         <div>
           <h3>Watch how AI builds a coursepage & assignments</h3>
           <iframe class="embed-frame" src="https://www.youtube-nocookie.com/embed/Fqvvvii8sGA?rel=0"
-            title="Edventure Demo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            title="Edventure Demo" loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
+
+        <!-- Right: Assignment/Test Builder live preview with fallback -->
         <div>
-          <h3>SEB testing environment preview</h3>
-          <div style="aspect-ratio:16/10;background:rgba(255,255,255,0.06);border-radius:12px;display:flex;align-items:center;justify-content:center">Image placeholder</div>
+          <h3>Assignment Builder (live preview)</h3>
+          <p class="helper" style="margin-top:-4px">
+            Configure <strong>Standard</strong>, <strong>Timed</strong>, <strong>Controlled AI</strong>, and <strong>Lockdown</strong> assignments in one flow.
+          </p>
+          <div style="width:100%; aspect-ratio:16/10; border-radius:12px; overflow:hidden; box-shadow: var(--shadow); background:rgba(255,255,255,0.04)">
+            <iframe
+              src="https://course-gen-assignment-urrh.vercel.app/builder"
+              title="Edventure Assignment/Test Builder"
+              loading="lazy"
+              class="embed-frame"
+              style="height:100%; width:100%; border:0; border-radius:0; box-shadow:none"
+              referrerpolicy="no-referrer"
+              sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin">
+            </iframe>
+          </div>
+          <p class="helper" style="margin-top:10px">
+            If the preview doesn’t load, <a href="https://course-gen-assignment-urrh.vercel.app/builder" target="_blank" rel="noopener">open the live builder in a new tab</a>.
+          </p>
+          <ul class="list" style="margin-top:8px">
+            <li>One canvas for all question types (MCQ, coding, essay, etc.)</li>
+            <li>Pick assignment mode: Standard · Timed · Controlled AI · Lockdown</li>
+            <li>Drag-and-drop building with real-time preview</li>
+            <li>Rubric & grading setup in the same flow</li>
+          </ul>
         </div>
       </div>
     </div></div>
@@ -168,7 +194,7 @@
       <h2>How to access</h2>
       <p>We are onboarding instructors and departments in small batches. Share a few details, and we will reach out with a link and next steps.</p>
 
-      <!-- ✅ Formspree endpoint -->
+      <!-- Formspree endpoint -->
       <form id="lead-form" action="https://formspree.io/f/mzzayrld" method="POST">
         <input type="hidden" name="_subject" value="Edventure access request" />
         <label for="name">Full name</label>
@@ -227,14 +253,13 @@
     });
   });
 
-  // 🔁 Formspree submit (no Outlook)
+  // Formspree submit (no mail client)
   const form = document.getElementById('lead-form');
   const statusEl = document.getElementById('form-status');
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Optional: show a soft validation if consent not ticked
       const consent = document.getElementById('consent');
       if (consent && !consent.checked) {
         statusEl.textContent = 'Please tick the consent box to proceed.';
