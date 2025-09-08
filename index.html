@@ -41,7 +41,6 @@
     #access{background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);color:#0b0d10}
     #access h2,#access p,#access label{color:#0b0d10}
     #access input,#access select,#access textarea{background:rgba(255,255,255,0.2);color:#0b0d10;border:1px solid rgba(0,0,0,.15);border-radius:10px;padding:10px;width:100%;margin:10px 0 18px}
-    /* consent row */
     #access .consent-row{
       display:inline-flex;
       align-items:center;
@@ -58,7 +57,6 @@
     .list li{margin:6px 0}
     footer{padding:32px 20px 60px;text-align:center;color:var(--muted);background:var(--section1)}
     .embed-frame{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;box-shadow:var(--shadow)}
-    .helper{color:var(--muted);font-size:14px}
   </style>
 </head>
 <body>
@@ -157,13 +155,9 @@
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div>
-          <h3>Assignment Types at a Glance</h3>
-          <p class="helper">Standard · Timed · Controlled AI · Lockdown</p>
-          <figure style="margin:0">
-            <img src="https://vagisha15.github.io/Edventure.io/images/assignment-types.png"
-                 alt="Assignment Types: Standard, Timed, Controlled AI, Lockdown"
-                 style="width:100%;display:block;border-radius:12px;box-shadow:var(--shadow);" />
-          </figure>
+          <h3>Assignment Builder</h3>
+          <p>Configure different types of assignments—<strong>Standard</strong>, <strong>Timed</strong>, <strong>Controlled AI</strong>, and <strong>Lockdown</strong>—without the setup hassle, all in one builder.</p>
+          <img src="images/assignment-types.png" alt="Assignment Types" style="max-width:70%;display:block;margin:0 auto;border-radius:12px;box-shadow:var(--shadow);" />
         </div>
       </div>
     </div></div>
@@ -174,7 +168,6 @@
       <h2>How to access</h2>
       <p>We are onboarding instructors and departments in small batches. Share a few details, and we will reach out with a link and next steps.</p>
 
-      <!-- Formspree endpoint -->
       <form id="lead-form" action="https://formspree.io/f/mzzayrld" method="POST">
         <input type="hidden" name="_subject" value="Edventure access request" />
         <label for="name">Full name</label>
@@ -232,7 +225,6 @@
     });
   });
 
-  // Formspree submit (no mail client)
   const form = document.getElementById('lead-form');
   const statusEl = document.getElementById('form-status');
   if (form) {
