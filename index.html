@@ -40,14 +40,13 @@
     #demo{background:var(--section3)}
     #access{background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);color:#0b0d10}
     #access h2,#access p,#access label{color:#0b0d10}
-    #access input,#access select,#access textarea{background:rgba(255,255,255,0.2);color:#0b0d10;border:1px solid rgba(0,0,0,.15);border-radius:10px;padding:10px;width:100%;margin:10px 0 18px}
-    /* consent row */
+    #access input,#access select,#access textarea{
+      background:rgba(255,255,255,0.2);color:#0b0d10;border:1px solid rgba(0,0,0,.15);
+      border-radius:10px;padding:10px;width:100%;margin:10px 0 18px
+    }
+    /* keep checkbox + label together */
     #access .consent-row{
-      display:inline-flex;
-      align-items:center;
-      justify-content:flex-start;
-      gap:10px;
-      margin:16px 0 8px;
+      display:inline-flex;align-items:center;justify-content:flex-start;gap:10px;margin:16px 0 8px;
     }
     #access .consent-row input[type="checkbox"]{width:18px;height:18px;min-width:18px}
     #access .consent-row label{margin:0}
@@ -149,40 +148,40 @@
     <div class="wrap"><div class="panel">
       <h2>See Edventure in Action</h2>
       <div style="display:grid;gap:20px">
-        <!-- Left: YouTube demo -->
         <div>
           <h3>Watch how AI builds a coursepage & assignments</h3>
           <iframe class="embed-frame" src="https://www.youtube-nocookie.com/embed/Fqvvvii8sGA?rel=0"
-            title="Edventure Demo" loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            title="Edventure Demo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-
-        <!-- Right: Assignment/Test Builder live preview with fallback -->
         <div>
           <h3>Assignment Builder (live preview)</h3>
-          <p class="helper" style="margin-top:-4px">
+          <p class="helper" style="margin:0 0 8px;color:var(--muted)">
             Configure <strong>Standard</strong>, <strong>Timed</strong>, <strong>Controlled AI</strong>, and <strong>Lockdown</strong> assignments in one flow.
           </p>
-          <div style="width:100%; aspect-ratio:16/10; border-radius:12px; overflow:hidden; box-shadow: var(--shadow); background:rgba(255,255,255,0.04)">
-            <iframe
-              src="https://course-gen-assignment-urrh.vercel.app/builder"
-              title="Edventure Assignment/Test Builder"
-              loading="lazy"
-              class="embed-frame"
-              style="height:100%; width:100%; border:0; border-radius:0; box-shadow:none"
-              referrerpolicy="no-referrer"
-              sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin">
-            </iframe>
-          </div>
-          <p class="helper" style="margin-top:10px">
-            If the preview doesn’t load, <a href="https://course-gen-assignment-urrh.vercel.app/builder" target="_blank" rel="noopener">open the live builder in a new tab</a>.
+          <!-- Live builder embed -->
+          <iframe
+            class="embed-frame"
+            src="https://course-gen-assignment-urrh.vercel.app/builder"
+            title="Edventure Assignment Builder"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+
+          <p class="helper" style="margin:10px 0 6px;color:var(--muted)">
+            If the preview doesn’t load, <a href="https://course-gen-assignment-urrh.vercel.app/builder" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.25)">open the live builder in a new tab</a>.
           </p>
-          <ul class="list" style="margin-top:8px">
+
+          <!-- Screenshot (backup / above-the-fold visual) -->
+          <img
+            src="images/assignment-types.png"
+            alt="Assignment type cards: Standard, Timed, Controlled AI, Lockdown"
+            style="width:100%;border-radius:12px;box-shadow:var(--shadow);margin-top:12px" />
+
+          <ul class="list" style="margin-top:12px">
             <li>One canvas for all question types (MCQ, coding, essay, etc.)</li>
-            <li>Pick assignment mode: Standard · Timed · Controlled AI · Lockdown</li>
-            <li>Drag-and-drop building with real-time preview</li>
-            <li>Rubric & grading setup in the same flow</li>
+            <li>Pick assignment modes: Standard • Timed • Controlled AI • Lockdown</li>
+            <li>Rubrics and grading guides auto-generated from prompts</li>
           </ul>
         </div>
       </div>
@@ -205,7 +204,9 @@
 
         <label for="role">Role</label>
         <select id="role" name="role" required>
-          <option value="">Select</option><option>Instructor</option><option>Program director</option><option>Department admin</option><option>Teaching assistant</option><option>Other</option>
+          <option value="">Select</option>
+          <option>Instructor</option><option>Program director</option>
+          <option>Department admin</option><option>Teaching assistant</option><option>Other</option>
         </select>
 
         <label for="institution">Institution</label>
@@ -213,7 +214,9 @@
 
         <label for="lms">Primary LMS</label>
         <select id="lms" name="lms" required>
-          <option value="">Select</option><option>Canvas</option><option>Moodle</option><option>Blackboard</option><option>Brightspace</option><option>Schoology</option><option>Other</option>
+          <option value="">Select</option>
+          <option>Canvas</option><option>Moodle</option><option>Blackboard</option>
+          <option>Brightspace</option><option>Schoology</option><option>Other</option>
         </select>
 
         <label for="courses">Courses per term</label>
@@ -230,7 +233,6 @@
         <p class="helper">We respect privacy. We only use your info to contact you about access.</p>
         <div class="cta"><button class="btn alt" type="submit">Request access</button></div>
 
-        <!-- Inline status message -->
         <div id="form-status" class="helper" style="margin-top:12px;"></div>
       </form>
     </div></div>
@@ -253,30 +255,22 @@
     });
   });
 
-  // Formspree submit (no mail client)
+  // Formspree submit (no mailto)
   const form = document.getElementById('lead-form');
   const statusEl = document.getElementById('form-status');
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-
       const consent = document.getElementById('consent');
       if (consent && !consent.checked) {
         statusEl.textContent = 'Please tick the consent box to proceed.';
         statusEl.style.color = '#b91c1c';
         return;
       }
-
       statusEl.textContent = 'Sending...';
       statusEl.style.color = '#9aa4b2';
-
       try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: new FormData(form)
-        });
-
+        const res = await fetch(form.action, { method:'POST', headers:{ 'Accept':'application/json' }, body:new FormData(form) });
         if (res.ok) {
           form.reset();
           statusEl.textContent = 'Thanks! We’ll reach out with access details.';
@@ -286,7 +280,7 @@
           statusEl.textContent = (data?.errors?.[0]?.message) || 'Something went wrong. Please try again.';
           statusEl.style.color = '#b91c1c';
         }
-      } catch (err) {
+      } catch {
         statusEl.textContent = 'Network error. Please try again.';
         statusEl.style.color = '#b91c1c';
       }
