@@ -41,6 +41,7 @@
     #access{background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);color:#0b0d10}
     #access h2,#access p,#access label{color:#0b0d10}
     #access input,#access select,#access textarea{background:rgba(255,255,255,0.2);color:#0b0d10;border:1px solid rgba(0,0,0,.15);border-radius:10px;padding:10px;width:100%;margin:10px 0 18px}
+    /* consent row */
     #access .consent-row{
       display:inline-flex;
       align-items:center;
@@ -57,6 +58,7 @@
     .list li{margin:6px 0}
     footer{padding:32px 20px 60px;text-align:center;color:var(--muted);background:var(--section1)}
     .embed-frame{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;box-shadow:var(--shadow)}
+    .helper{color:var(--muted);font-size:14px}
   </style>
 </head>
 <body>
@@ -155,10 +157,13 @@
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div>
-          <h3>Assignment Builder</h3>
-          <p>Configure <strong>Standard</strong>, <strong>Timed</strong>, <strong>Controlled AI</strong>, and <strong>Lockdown</strong> assignments in one flow.</p>
-          <img src="images/assignment-types.png" alt="Assignment Types: Standard, Timed, Controlled AI, Lockdown" style="width:100%;margin-bottom:16px;border-radius:12px;box-shadow:var(--shadow);" />
-          <img src="images/assignment-builder.png" alt="Assignment Builder Preview showing assignment creation flow" style="width:100%;border-radius:12px;box-shadow:var(--shadow);" />
+          <h3>Assignment Types at a Glance</h3>
+          <p class="helper">Standard · Timed · Controlled AI · Lockdown</p>
+          <figure style="margin:0">
+            <img src="images/assignment-types.png"
+                 alt="Assignment Types: Standard, Timed, Controlled AI, Lockdown"
+                 style="width:100%;display:block;border-radius:12px;box-shadow:var(--shadow);" />
+          </figure>
         </div>
       </div>
     </div></div>
@@ -169,7 +174,7 @@
       <h2>How to access</h2>
       <p>We are onboarding instructors and departments in small batches. Share a few details, and we will reach out with a link and next steps.</p>
 
-      <!-- ✅ Formspree endpoint -->
+      <!-- Formspree endpoint -->
       <form id="lead-form" action="https://formspree.io/f/mzzayrld" method="POST">
         <input type="hidden" name="_subject" value="Edventure access request" />
         <label for="name">Full name</label>
@@ -205,7 +210,6 @@
         <p class="helper">We respect privacy. We only use your info to contact you about access.</p>
         <div class="cta"><button class="btn alt" type="submit">Request access</button></div>
 
-        <!-- Inline status message -->
         <div id="form-status" class="helper" style="margin-top:12px;"></div>
       </form>
     </div></div>
@@ -228,7 +232,7 @@
     });
   });
 
-  // 🔁 Formspree submit (no Outlook)
+  // Formspree submit (no mail client)
   const form = document.getElementById('lead-form');
   const statusEl = document.getElementById('form-status');
   if (form) {
